@@ -1,14 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+
+import Choice from "./Choice.tsx";
+import reportWebVitals from "./reportWebVitals";
+import twine from "./twine";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <h3>{twine.name}</h3>
+    <Choice passages={twine.passages} />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

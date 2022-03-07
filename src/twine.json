@@ -1,0 +1,71 @@
+{
+    "passages": [
+        {
+            "text": "You find a treasure chest...\n[[Open it->You died]] \n[[Walk passed it->You Live]]",
+            "links": [
+                {
+                    "name": "Open it",
+                    "link": "You died",
+                    "pid": "3"
+                },
+                {
+                    "name": "Walk passed it",
+                    "link": "You Live",
+                    "pid": "2"
+                }
+            ],
+            "name": "Treasure?",
+            "pid": "1",
+            "position": {
+                "x": "406",
+                "y": "172.5"
+            }
+        },
+        {
+            "text": "Smart move!\n[[Continue->Walking]]",
+            "links": [
+                {
+                    "name": "Continue",
+                    "link": "Walking",
+                    "pid": "4"
+                }
+            ],
+            "name": "You Live",
+            "pid": "2",
+            "position": {
+                "x": "401",
+                "y": "379.5"
+            }
+        },
+        {
+            "text": "Posionus gas comes forth and you die.\n(link-undo:\"Go Back\")",
+            "name": "You died",
+            "pid": "3",
+            "position": {
+                "x": "620",
+                "y": "163.5"
+            }
+        },
+        {
+            "text": "As you are walking... \n[[Continue->Treasure?]]",
+            "links": [
+                {
+                    "name": "Continue",
+                    "link": "Treasure?",
+                    "pid": "1"
+                }
+            ],
+            "name": "Walking",
+            "pid": "4",
+            "position": {
+                "x": "182",
+                "y": "268.5"
+            }
+        }
+    ],
+    "name": "Adventure Time",
+    "startnode": "1",
+    "creator": "Twine",
+    "creator-version": "2.3.16",
+    "ifid": "544384C4-7725-4F4B-9BB5-5DDD219B8073"
+}

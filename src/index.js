@@ -4,7 +4,7 @@ import "./index.css";
 
 import Choice from "./Choice.tsx";
 import reportWebVitals from "./reportWebVitals";
-import twine from "./twine";
+import twine from "./draft";
 
 ReactDOM.render(
   <React.StrictMode>

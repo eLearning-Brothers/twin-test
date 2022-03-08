@@ -1,0 +1,422 @@
+{
+  "passages": [
+    {
+      "text": "<<nobr>>\n<<set $results to false>>\n<<set $audit to false>>\n<<set $ReFed to false>>\n<<set $conventions to false>>\n<<set $adHoc to false>>\n<<set $warehouse to false>>\n<<set $support to false>>\n<</nobr>>\nYou probably have a lot of questions about how you're going to set up the storage system for this data initiative.\n\nI've set up a meeting with you, Mr. Trentini, and Floris Krigel, our Chief Data Officer. They can give you all the information you need for this initial build—as long as you ask the right questions!\n\n-Suchaow\n\n[[Start]]",
+      "links": [
+        {
+          "name": "Start",
+          "link": "Start",
+          "pid": "2"
+        }
+      ],
+      "name": "PM Intro",
+      "pid": "1",
+      "position": {
+        "x": "773",
+        "y": "90"
+      },
+      "tags": [
+        "Suchaow"
+      ]
+    },
+    {
+      "text": "Your meeting with the CEO and CDO (Chief Data Officer) starts out smoothly. Like most executives, they're pressed for time. You quickly get to the point.\n\nMATTEI TRENTINI: So, what do you want to know?\n\nFLORIS KRIGEL: I'm happy to answer any questions you have about the existing data infrastructure here at Trey Research.\n\nYou say...\n[[Okay, here's my first question...|Questions]]\n\n",
+      "links": [
+        {
+          "name": "Okay, here's my first question...|Questions",
+          "link": "Okay, here's my first question...|Questions",
+          "broken": true
+        }
+      ],
+      "name": "Start",
+      "pid": "2",
+      "position": {
+        "x": "369",
+        "y": "229"
+      },
+      "tags": [
+        "Mattei",
+        "Floris"
+      ]
+    },
+    {
+      "text": "<<nobr>>\n<<set $support to true>>\n<<set $results to true>>\n<</nobr>>\nFLORIS KRIGEL: I'm not sure what's in those CSV files off-hand. I'd say use your best judgment.\n\nMATTEI TRENTINI: The data needs to help us analyze food waste data in relation to our key metrics. Check with the \"Data Analyst\" on your team for more details on what our metrics will be.\n\nYou say...\n[[Maybe we'll simply load all the CSV data into the data warehouse.|Warehouse]]\n[[I think we'll load all the CSV files into the data lake.|Lake]]",
+      "links": [
+        {
+          "name": "Maybe we'll simply load all the CSV data into the data warehouse.|Warehouse",
+          "link": "Maybe we'll simply load all the CSV data into the data warehouse.|Warehouse",
+          "broken": true
+        },
+        {
+          "name": "I think we'll load all the CSV files into the data lake.|Lake",
+          "link": "I think we'll load all the CSV files into the data lake.|Lake",
+          "broken": true
+        }
+      ],
+      "name": "ReFed has provided 5 data files. Which of these will we need?",
+      "pid": "3",
+      "position": {
+        "x": "1398",
+        "y": "513"
+      },
+      "tags": [
+        "Floris",
+        "Mattei"
+      ]
+    },
+    {
+      "text": "<<nobr>>\n<<set $conventions to true>>\n<<set $results to true>>\n<</nobr>>\nFLORIS KRIGEL: Well, that will be up to you. As you know, we have an Azure Storage account and four databases. Just be sure to adhere to our data lake conventions.\n\nYou say...\n[[Can't we simply pull the data from ReFed when we need it?]]\n[[Where can I find those conventions again?]]\n[[No problem!|Questions]]\n\n",
+      "links": [
+        {
+          "name": "Can't we simply pull the data from ReFed when we need it?",
+          "link": "Can't we simply pull the data from ReFed when we need it?",
+          "pid": "6"
+        },
+        {
+          "name": "Where can I find those conventions again?",
+          "link": "Where can I find those conventions again?",
+          "pid": "11"
+        },
+        {
+          "name": "No problem!|Questions",
+          "link": "No problem!|Questions",
+          "broken": true
+        }
+      ],
+      "name": "Where should we store the data that we use?",
+      "pid": "4",
+      "position": {
+        "x": "685",
+        "y": "715"
+      },
+      "tags": [
+        "Floris"
+      ]
+    },
+    {
+      "text": "MATTEI TRENTINI: I imagine we'll be doing analysis quite frequently, especially as we decide how to move forward.\n\nYou say...\n[[So, maybe once per day? I'm just thinking about how fast and responsive we need the dashboard to be.|Daily]]\n[[It sounds like we'll need to support ad-hoc analysis.|AdHoc]]",
+      "links": [
+        {
+          "name": "So, maybe once per day? I'm just thinking about how fast and responsive we need the dashboard to be.|Daily",
+          "link": "So, maybe once per day? I'm just thinking about how fast and responsive we need the dashboard to be.|Daily",
+          "broken": true
+        },
+        {
+          "name": "It sounds like we'll need to support ad-hoc analysis.|AdHoc",
+          "link": "It sounds like we'll need to support ad-hoc analysis.|AdHoc",
+          "broken": true
+        }
+      ],
+      "name": "How often will we be running analysis operations?",
+      "pid": "5",
+      "position": {
+        "x": "1082",
+        "y": "596"
+      },
+      "tags": [
+        "Mattei"
+      ]
+    },
+    {
+      "text": "<<nobr>>\n<<set $audit to true>>\n<<set $results to true>>\n<</nobr>>\nFLORIS KRIGEL: I believe this data must be retained within the company for audit purposes.\n\nMATTEI TRENTINI: That's correct.\n\nYou say...\n[[That makes sense.]]\n[[Let me pivot to a different line of questioning.|Questions]]",
+      "links": [
+        {
+          "name": "That makes sense.",
+          "link": "That makes sense.",
+          "pid": "7"
+        },
+        {
+          "name": "Let me pivot to a different line of questioning.|Questions",
+          "link": "Let me pivot to a different line of questioning.|Questions",
+          "broken": true
+        }
+      ],
+      "name": "Can't we simply pull the data from ReFed when we need it?",
+      "pid": "6",
+      "position": {
+        "x": "489",
+        "y": "992"
+      },
+      "tags": [
+        "Floris",
+        "Mattei"
+      ]
+    },
+    {
+      "text": "<<nobr>>\n<<set $ReFed to true>>\n<<set $results to true>>\n<</nobr>>\nMATTEI TRENTINI: Plus, we should try to reduce the cost impact on ReFed when using the dataset. It's just the right thing to do.\n\nYou say...\n[[Absolutely.]]",
+      "links": [
+        {
+          "name": "Absolutely.",
+          "link": "Absolutely.",
+          "pid": "15"
+        }
+      ],
+      "name": "That makes sense.",
+      "pid": "7",
+      "position": {
+        "x": "672",
+        "y": "1148"
+      },
+      "tags": [
+        "Mattei"
+      ]
+    },
+    {
+      "text": "You ask...\n\n[[ReFed has provided 5 data files. Which of these will we need?]]\n[[Where should we store the data that we use?]]\n[[How often will we be running analysis operations?]]\n[[What should I know about the data warehouse?]]",
+      "links": [
+        {
+          "name": "ReFed has provided 5 data files. Which of these will we need?",
+          "link": "ReFed has provided 5 data files. Which of these will we need?",
+          "pid": "3"
+        },
+        {
+          "name": "Where should we store the data that we use?",
+          "link": "Where should we store the data that we use?",
+          "pid": "4"
+        },
+        {
+          "name": "How often will we be running analysis operations?",
+          "link": "How often will we be running analysis operations?",
+          "pid": "5"
+        },
+        {
+          "name": "What should I know about the data warehouse?",
+          "link": "What should I know about the data warehouse?",
+          "pid": "18"
+        }
+      ],
+      "name": "Questions",
+      "pid": "8",
+      "position": {
+        "x": "637",
+        "y": "428"
+      }
+    },
+    {
+      "text": "MATTEI TRENTINI: I just can't say for certain. Once a day might do it.\n\nYou say...\n[[Okay, that's good to know.|Questions]]",
+      "links": [
+        {
+          "name": "Okay, that's good to know.|Questions",
+          "link": "Okay, that's good to know.|Questions",
+          "broken": true
+        }
+      ],
+      "name": "Daily",
+      "pid": "9",
+      "position": {
+        "x": "1314",
+        "y": "725"
+      },
+      "tags": [
+        "Mattei"
+      ]
+    },
+    {
+      "text": "FLORIS KRIGEL: I agree. I'd suggest that your team set things up to support analysis at any time.\n\nMATTEI TRENTINI: Sure. I just need it to be ready to go when I need to make decisions.\n\nYou say...\n[[Then it's settled. We'll make sure the data is available for ad-hoc analysis.]]",
+      "links": [
+        {
+          "name": "Then it's settled. We'll make sure the data is available for ad-hoc analysis.",
+          "link": "Then it's settled. We'll make sure the data is available for ad-hoc analysis.",
+          "pid": "12"
+        }
+      ],
+      "name": "AdHoc",
+      "pid": "10",
+      "position": {
+        "x": "1209",
+        "y": "967"
+      },
+      "tags": [
+        "Floris"
+      ]
+    },
+    {
+      "text": "FLORIS KRIGEL: I'll double-check that you have access to the Sharepoint that has the documentation.\n\n//HINT: Background information on Trey Research's infrastructure is available in the game's sidebar menu.//\n\nYou say...\n[[Thanks, Floris.]]",
+      "links": [
+        {
+          "name": "Thanks, Floris.",
+          "link": "Thanks, Floris.",
+          "pid": "14"
+        }
+      ],
+      "name": "Where can I find those conventions again?",
+      "pid": "11",
+      "position": {
+        "x": "242",
+        "y": "790"
+      }
+    },
+    {
+      "text": "<<nobr>>\n<<set $adHoc to true>>\n<<set $results to true>>\n<</nobr>>\nFLORIS KRIGEL: Perfect. What else do you want to know?\n\n[[I do have one or two more things to ask.|Questions]]\n[[I think I have what I need.|End]]\n\n",
+      "links": [
+        {
+          "name": "I do have one or two more things to ask.|Questions",
+          "link": "I do have one or two more things to ask.|Questions",
+          "broken": true
+        },
+        {
+          "name": "I think I have what I need.|End",
+          "link": "I think I have what I need.|End",
+          "broken": true
+        }
+      ],
+      "name": "Then it's settled. We'll make sure the data is available for ad-hoc analysis.",
+      "pid": "12",
+      "position": {
+        "x": "1068",
+        "y": "1123"
+      },
+      "tags": [
+        "Floris"
+      ]
+    },
+    {
+      "text": "''ACTIVITY COMPLETE''\n\n''Your meeting with Floris and Mattei concludes. Here’s what you learned about the data storage requirements for your upcoming build:''\n\n<<if $results is false>>Oh no! You didn't uncover any real requirements. Revisit the conversation and try asking more open-ended questions.<</if>>\n<<if $audit is true>>• Data must be retained within the company for audit purposes.<<else>>??x?<</if>>\n<<if $ReFed is true>>• You must reduce the cost impact on ReFed when using the dataset.<<else>>x?x?x?<</if>>\n<<if $conventions is true>>• Data lake conventions must be adhered to.<<else>>x?x??<</if>>\n<<if $adHoc is true>>• Data must be available to support ad-hoc analysis.<<else>>?x??x<</if>>\n<<if $warehouse is true>>• Only data needed for making a recommendation should be loaded into the data warehouse.<<else>>?x?x?x<</if>>\n<<if $support is true>>• It's likely that the data analyst will need to support views of the data based on solution priority area, solution group, and solution name.<<else>>???<</if>>\n\n[[Start Over|PM Intro]]",
+      "links": [
+        {
+          "name": "Start Over|PM Intro",
+          "link": "Start Over|PM Intro",
+          "broken": true
+        }
+      ],
+      "name": "End",
+      "pid": "13",
+      "position": {
+        "x": "1045",
+        "y": "1633"
+      }
+    },
+    {
+      "text": "FLORIS KRIGEL: Again, I'm happy to help. Just tell me what you and your team need.\n\n[[I do have one or two more things to ask.|Questions]]\n[[I think I have all the info I need for now.|End]]",
+      "links": [
+        {
+          "name": "I do have one or two more things to ask.|Questions",
+          "link": "I do have one or two more things to ask.|Questions",
+          "broken": true
+        },
+        {
+          "name": "I think I have all the info I need for now.|End",
+          "link": "I think I have all the info I need for now.|End",
+          "broken": true
+        }
+      ],
+      "name": "Thanks, Floris.",
+      "pid": "14",
+      "position": {
+        "x": "326",
+        "y": "1216"
+      }
+    },
+    {
+      "text": "MATTEI TRENTINI: I'm glad you agree. What other topics do you have for us?\n\n[[I do have one or two more things to ask.|Questions]]\n[[I think I have what I need, actually.|End]]",
+      "links": [
+        {
+          "name": "I do have one or two more things to ask.|Questions",
+          "link": "I do have one or two more things to ask.|Questions",
+          "broken": true
+        },
+        {
+          "name": "I think I have what I need, actually.|End",
+          "link": "I think I have what I need, actually.|End",
+          "broken": true
+        }
+      ],
+      "name": "Absolutely.",
+      "pid": "15",
+      "position": {
+        "x": "860",
+        "y": "974"
+      },
+      "tags": [
+        "Mattei"
+      ]
+    },
+    {
+      "text": "FLORIS KRIGEL: That's your call. Just consider that having unnecessary data in the warehouse leads to higher storage costs for Trey Research, and it might eventually slow down your dashboard.\n\nYou say...\n[[So maybe we should only load the data that's needed for making a recommendation.|What should I know about the data warehouse?]]\n[[I've got it. Now, for my next question...|Questions]]",
+      "links": [
+        {
+          "name": "So maybe we should only load the data that's needed for making a recommendation.|What should I know about the data warehouse?",
+          "link": "So maybe we should only load the data that's needed for making a recommendation.|What should I know about the data warehouse?",
+          "broken": true
+        },
+        {
+          "name": "I've got it. Now, for my next question...|Questions",
+          "link": "I've got it. Now, for my next question...|Questions",
+          "broken": true
+        }
+      ],
+      "name": "Warehouse",
+      "pid": "16",
+      "position": {
+        "x": "1557",
+        "y": "761"
+      },
+      "tags": [
+        "Floris"
+      ]
+    },
+    {
+      "text": "FLORIS KRIGEL: Loading all the data from the CSVs into the data lake makes sense to me. Go for it!\n\nMATTEI TRENTINI: What else do you want to know?\n\n[[I do have one or two more things to ask.|Questions]]\n[[I think I have what I need to get started.|End]]",
+      "links": [
+        {
+          "name": "I do have one or two more things to ask.|Questions",
+          "link": "I do have one or two more things to ask.|Questions",
+          "broken": true
+        },
+        {
+          "name": "I think I have what I need to get started.|End",
+          "link": "I think I have what I need to get started.|End",
+          "broken": true
+        }
+      ],
+      "name": "Lake",
+      "pid": "17",
+      "position": {
+        "x": "1658",
+        "y": "495"
+      },
+      "tags": [
+        "Floris",
+        "Mattei"
+      ]
+    },
+    {
+      "text": "<<nobr>>\n<<set $warehouse to true>>\n<<set $results to true>>\n<</nobr>>\nFLORIS KRIGEL: In general, only the data that's needed to run a specific analysis should be housed in the data warehouse.\n\n[[Okay. I have one or two more things to ask.|Questions]]\n[[Great! I think I have what I need.|End]]",
+      "links": [
+        {
+          "name": "Okay. I have one or two more things to ask.|Questions",
+          "link": "Okay. I have one or two more things to ask.|Questions",
+          "broken": true
+        },
+        {
+          "name": "Great! I think I have what I need.|End",
+          "link": "Great! I think I have what I need.|End",
+          "broken": true
+        }
+      ],
+      "name": "What should I know about the data warehouse?",
+      "pid": "18",
+      "position": {
+        "x": "1439",
+        "y": "1096"
+      },
+      "tags": [
+        "Floris"
+      ]
+    },
+    {
+      "text": "One of the storage requirements is \"You must reduce the cost impact on ReFed when using the dataset\"\n\nWhat actions would the engineer need to take in order to fulfill this requirement?\n\n(In this twine prototype, this requirement is traced with the $ ReFed variable)",
+      "name": "Questions for Shannon",
+      "pid": "19",
+      "position": {
+        "x": "958",
+        "y": "87"
+      }
+    }
+  ],
+  "name": "01.01.00A Draft script - Storage requirements",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.16",
+  "ifid": "1643CB31-FDBE-4990-822B-2C7D0658ACF2"
+}

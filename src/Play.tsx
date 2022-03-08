@@ -1,17 +1,35 @@
 import * as React from "react";
+import { useParams } from "react-router-dom";
+import { getFirestore, getDoc, doc } from "firebase/firestore/lite";
 
-interface Props {
-  passages: any;
-}
 let twineVars = {};
-export default function Choice({ passages }: Props) {
+//let thisTwine = twine;
+export default function Play() {
+  const params = useParams();
+  const twineIfId = params.twine;
   const [currentChoice, setCurrentChoice] = React.useState<number>(0);
+  const [thisTwine, setThisTwine] = React.useState(null);
+
+  React.useEffect(() => {
+    const getTwine = async () => {
+      const db = getFirestore(window.app);
+      const docRef = doc(db, "twines", params.twine);
+      const twinesSnapshot = await getDoc(docRef);
+      if (twinesSnapshot.exists()) {
+        setThisTwine(twinesSnapshot.data().twine);
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    };
+    getTwine().catch(console.error);
+  }, []);
 
   function setChoice(pid: number) {
     setCurrentChoice(pid - 1);
   }
   function getPassageByName(pname) {
-    return passages.filter(function (passage) {
+    return thisTwine.passages.filter(function (passage) {
       return passage.name === pname;
     })[0];
   }
@@ -46,7 +64,7 @@ export default function Choice({ passages }: Props) {
 
   function getUndoText() {
     const undoLink: string =
-      passages[currentChoice].text.match(/\(link-undo:.+\)/g);
+      thisTwine.passages[currentChoice].text.match(/\(link-undo:.+\)/g);
     const txt = undoLink[0].match(/".+"/);
     return txt[0].replace(/"/g, "");
   }
@@ -98,27 +116,42 @@ export default function Choice({ passages }: Props) {
     return passage;
   }
 
-  return (
-    <div className="choice-card">
-      <p
-        dangerouslySetInnerHTML={{
-          __html: parseLogic(passages[currentChoice].text),
-        }}
-      />
-      {}
+  if (thisTwine === null) {
+    return null;
+  }
 
-      {passages[currentChoice].links &&
-        passages[currentChoice].links.map((link) => buildButton(link))}
-      {passages[currentChoice].text.match(/\(link-undo:.+\)/g) && (
-        <button
-          type="button"
-          onClick={() => setChoice(1)}
-          aria-label={getUndoText()}
-          className="choice-btn"
-        >
-          {getUndoText()}
-        </button>
+  return (
+    <main>
+      <h3>{thisTwine.name}</h3>
+      {thisTwine !== null ? (
+        <div className="choice-card">
+          <p
+            dangerouslySetInnerHTML={{
+              __html: parseLogic(thisTwine.passages[currentChoice].text),
+            }}
+          />
+          {}
+
+          {thisTwine.passages[currentChoice].links &&
+            thisTwine.passages[currentChoice].links.map((link) =>
+              buildButton(link)
+            )}
+          {thisTwine.passages[currentChoice].text.match(
+            /\(link-undo:.+\)/g
+          ) && (
+            <button
+              type="button"
+              onClick={() => setChoice(1)}
+              aria-label={getUndoText()}
+              className="choice-btn"
+            >
+              {getUndoText()}
+            </button>
+          )}
+        </div>
+      ) : (
+        <p>loading</p>
       )}
-    </div>
+    </main>
   );
 }

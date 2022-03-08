@@ -6,7 +6,6 @@ let twineVars = {};
 //let thisTwine = twine;
 export default function Play() {
   const params = useParams();
-  const twineIfId = params.twine;
   const [currentChoice, setCurrentChoice] = React.useState<number>(0);
   const [thisTwine, setThisTwine] = React.useState(null);
 

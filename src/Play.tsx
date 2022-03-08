@@ -22,7 +22,7 @@ export default function Play() {
       }
     };
     getTwine().catch(console.error);
-  }, []);
+  }, [params]);
 
   function setChoice(pid: number) {
     setCurrentChoice(pid - 1);

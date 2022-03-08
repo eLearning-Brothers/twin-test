@@ -1,12 +1,6 @@
 import * as React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import {
-  getFirestore,
-  serverTimestamp,
-  collection,
-  getDocs,
-  addDoc,
-} from "firebase/firestore/lite";
+import { NavLink } from "react-router-dom";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 export default function TwineList() {
   const [twineList, setTwineList] = React.useState([]);

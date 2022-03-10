@@ -20,9 +20,9 @@ h3 {
   border-style: solid;
   border-color: gray;
   border-radius: 5px;
-  width: 50%;
+  width: 80%;
   margin: auto;
-  padding: 50px;
+  padding: 20px;
   background-color: white;
 }
 
@@ -37,4 +37,19 @@ h3 {
 .import-area {
   height: 500px;
   width: 800px;
+}
+
+.play-wrapper {
+  display: flex;
+}
+
+.play-area {
+  width: 70%;
+}
+
+.json-display {
+  width: 30%;
+  height: 85vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }

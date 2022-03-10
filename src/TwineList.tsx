@@ -29,7 +29,7 @@ export default function TwineList() {
           to={`/play/${doc.id}`}
           className="choice-btn"
         >
-          {doc.data.twine.name} name
+          {doc.data.twine.name}
         </NavLink>
       </div>
     );

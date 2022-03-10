@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, getDoc, doc } from "firebase/firestore/lite";
+import ReactJson from "react-json-view";
 
 let twineVars = {};
 //let thisTwine = twine;
@@ -115,42 +116,56 @@ export default function Play() {
     return passage;
   }
 
+  function selectedNode(selected) {
+    console.log(selected);
+    if (selected.name === "pid") {
+      setChoice(selected.value);
+    }
+  }
+
   if (thisTwine === null) {
     return null;
   }
 
   return (
-    <main>
-      <h3>{thisTwine.name}</h3>
-      {thisTwine !== null ? (
-        <div className="choice-card">
-          <p
-            dangerouslySetInnerHTML={{
-              __html: parseLogic(thisTwine.passages[currentChoice].text),
-            }}
-          />
-          {}
+    <main className="play-wrapper">
+      <div className="play-area">
+        <h3>{thisTwine.name}</h3>
+        {thisTwine !== null ? (
+          <div className="choice-card">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: parseLogic(thisTwine.passages[currentChoice].text),
+              }}
+            />
+            {}
 
-          {thisTwine.passages[currentChoice].links &&
-            thisTwine.passages[currentChoice].links.map((link) =>
-              buildButton(link)
+            {thisTwine.passages[currentChoice].links &&
+              thisTwine.passages[currentChoice].links.map((link) =>
+                buildButton(link)
+              )}
+            {thisTwine.passages[currentChoice].text.match(
+              /\(link-undo:.+\)/g
+            ) && (
+              <button
+                type="button"
+                onClick={() => setChoice(1)}
+                aria-label={getUndoText()}
+                className="choice-btn"
+              >
+                {getUndoText()}
+              </button>
             )}
-          {thisTwine.passages[currentChoice].text.match(
-            /\(link-undo:.+\)/g
-          ) && (
-            <button
-              type="button"
-              onClick={() => setChoice(1)}
-              aria-label={getUndoText()}
-              className="choice-btn"
-            >
-              {getUndoText()}
-            </button>
-          )}
-        </div>
-      ) : (
-        <p>loading</p>
-      )}
+          </div>
+        ) : (
+          <p>loading</p>
+        )}
+      </div>
+      <div className="json-display">
+        Click a pid to jump to that page:
+        <br />
+        <ReactJson src={thisTwine} onSelect={selectedNode} />
+      </div>
     </main>
   );
 }

@@ -27,6 +27,16 @@ export default function Play() {
 
   function setChoice(pid: number) {
     setCurrentChoice(pid - 1);
+    const varElems = document.getElementsByClassName("variable-row");
+    const currentPageName = thisTwine.passages[currentChoice].name;
+    const displayString = `"name":string"${currentPageName}"`;
+    console.log(displayString);
+    for (var elem in varElems) {
+      if (varElems[elem].textContent === displayString) {
+        document.getElementById("json_display").scrollTop =
+          varElems[elem].offsetTop;
+      }
+    }
   }
   function getPassageByName(pname) {
     return thisTwine.passages.filter(function (passage) {
@@ -161,7 +171,7 @@ export default function Play() {
           <p>loading</p>
         )}
       </div>
-      <div className="json-display">
+      <div className="json-display" id="json_display">
         Click a pid to jump to that page:
         <br />
         <ReactJson src={thisTwine} onSelect={selectedNode} />

@@ -46,15 +46,17 @@ export default function Play() {
   function buildButton(link) {
     if (link.broken) {
       const linkToPid = getPassageByName(link.name.match(/(?<=\|).+/g)[0]);
+      let linkName = link.name.split("|")[0];
+      console.log("linkName", linkName);
       return (
         <button
           type="button"
           onClick={() => setChoice(linkToPid.pid)}
-          aria-label={linkToPid.name}
+          aria-label={linkName}
           key={linkToPid.pid}
           className="choice-btn"
         >
-          {linkToPid.name}
+          {linkName}
         </button>
       );
     } else {
